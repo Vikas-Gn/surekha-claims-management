@@ -5,7 +5,7 @@ services:
     image: postgres:14
     container_name: postgres-claim
     ports:
-      - "5014:5432"
+      - "5602:5432"
     environment:
       POSTGRES_DB: employee_claims_db
       POSTGRES_USER: postgres
@@ -20,7 +20,7 @@ services:
     build: ./Backend
     container_name: backend-claim
     ports:
-      - "3046:3046"
+      - "3602:3602"
     depends_on:
       - postgres
     networks:
@@ -30,7 +30,7 @@ services:
     build: ./employee-side-claim
     container_name: employee-side-claim
     ports:
-      - "8057:80"
+      - "8604:80"
     depends_on:
       - backend
     networks:
@@ -40,7 +40,7 @@ services:
     build: ./hr-claim
     container_name: hr-claim
     ports:
-      - "8058:80"
+      - "8605:80"
     depends_on:
       - backend
     networks:
